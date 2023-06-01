@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Binance Wallet Balance</title>
+  </head>
+  <body>
+    <h1>Binance Wallet Balance</h1>
+    <p>Your wallet balance as of {{ timestamp }} is {{ balance }} {{ symbol }}.</p>
+    <p>Here is your balance history for the past 7 days:</p>
+    <table>
+      <tr>
+        <th>Date</th>
+        <th>Balance</th>
+      </tr>
+      {% for data in balance_history %}
+      <tr>
+        <td>{{ data.date }}</td>
+        <td>{{ data.balance }} {{ symbol }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

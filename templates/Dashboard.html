@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Binance Account Snapshot Dashboard</title>
+  </head>
+  <body>
+    <h1>Binance Account Snapshot Dashboard</h1>
+    <h2>Balance Chart</h2>
+    <canvas id="balanceChart"></canvas>
+    <h2>Asset Table</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Asset</th>
+          <th>Free</th>
+          <th>Locked</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody id="assetTableBody">
+      </tbody>
+    </table>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script>
+      // Replace the following data with your actual Binance account snapshot data
+      const snapshotData = {
+        "balances": [
+          {
+            "asset": "BTC",
+            "free": "1.23456789",
+            "locked": "0.00000000"
+          },
+          {
+            "asset": "ETH",
+            "free": "10.98765432",
+            "locked": "0.00000000"
+          },
+          {
+            "asset": "USDT",
+            "free": "1000.00000000",
+            "locked": "0.00000000"
+          }
+        ],
+        "totalAssetOfBtc": "2.34567890"
+      };
+      
+      // Create the balance chart
+      const balanceChartCanvas = document.getElementById('balanceChart');
+      const balanceChartData = {
+        labels: ['BTC', 'ETH', 'USDT'],
+        datasets: [
+          {
+            label: 'Total Balance',
+            data: [
+              snapshotData.balances.find(balance => balance.asset === 'BTC').free,
+              snapshotData.balances.find(balance => balance.asset === 'ETH').free,
+              snapshotData.balances.find(balance => balance.asset === 'USDT').free
+            ],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 1
+          }
+        ]
+      };
+      const balanceChartOptions = {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      };
+      new Chart(balanceChartCanvas, {
+        type: 'bar',
+        data: balanceChartData,
+        options: balanceChartOptions
+      });
+      
+      // Create the asset table
+      const assetTableBody = document.getElementById('assetTableBody');
+      snapshotData.balances.forEach(balance => {
+        const row = document.createElement('tr');
+        const assetCell = document.createElement('td');
+        assetCell.textContent = balance.asset;
+        row.appendChild(assetCell);
+        const freeCell = document.createElement('td');
+        freeCell.textContent = balance.free;
+        row.appendChild(freeCell);
+        const lockedCell = document.createElement('td');
+        lockedCell.textContent = balance.locked;
+        row.appendChild(lockedCell);
+        const totalCell = document.createElement('td');
+totalCell.textContent = (parseFloat(balance.free) + parseFloat(balance.locked)).toFixed(8);
+row.appendChild(totalCell);
+assetTableBody.appendChild(row);
+});
+</script>
+
+  </body>
+</html>

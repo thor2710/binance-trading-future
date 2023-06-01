@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Binance Order History</title>
+  </head>
+  <body>
+    <h1>Binance Order History</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Time</th>
+          <th>Order ID</th>
+          <th>Client Order ID</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Executed Quantity</th>
+          <th>Cummulative Quote Quantity</th>
+          <th>Status</th>
+          <th>Time in Force</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for order in orders %}
+        <tr>
+          <td>{{ order.symbol }}</td>
+          <td>{{ order.time }}</td>
+          <td>{{ order.orderId }}</td>
+          <td>{{ order.clientOrderId }}</td>
+          <td>{{ order.price }}</td>
+          <td>{{ order.origQty }}</td>
+          <td>{{ order.executedQty }}</td>
+          <td>{{ order.cummulativeQuoteQty }}</td>
+          <td>{{ order.status }}</td>
+          <td>{{ order.timeInForce }}</td>
+          <td>{{ order.type }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

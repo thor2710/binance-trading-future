@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://colorlib.com/etc/tb/Table_Fixed_Column/index.html -->
+<html lang="en"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><style lang="en" type="text/css" id="dark-mode-native-sheet"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Table V05</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" type="image/png" href="https://colorlib.com/etc/tb/Table_Fixed_Column/images/icons/favicon.ico">
+
+<link rel="stylesheet" type="text/css" href="./Table V05_files/bootstrap.min.css">
+
+<link rel="stylesheet" type="text/css" href="./Table V05_files/font-awesome.min.css">
+
+<link rel="stylesheet" type="text/css" href="./Table V05_files/animate.css">
+
+<link rel="stylesheet" type="text/css" href="./Table V05_files/select2.min.css">
+
+<link rel="stylesheet" type="text/css" href="./Table V05_files/perfect-scrollbar.css">
+
+<link rel="stylesheet" type="text/css" href="./Table V05_files/util.css">
+<link rel="stylesheet" type="text/css" href="./Table V05_files/main.css">
+
+<meta name="robots" content="noindex, follow">
+<script type="text/javascript" async="" src="./Table V05_files/analytics.js.download" nonce="1de9085e-b0b1-4acb-8c40-6df274dca26b"></script><script defer="" referrerpolicy="origin" src="./Table V05_files/s.js.download"></script><script nonce="1de9085e-b0b1-4acb-8c40-6df274dca26b">(function(w,d){!function(Y,Z,_,ba){Y[_]=Y[_]||{};Y[_].executed=[];Y.zaraz={deferred:[],listeners:[]};Y.zaraz.q=[];Y.zaraz._f=function(bb){return function(){var bc=Array.prototype.slice.call(arguments);Y.zaraz.q.push({m:bb,a:bc})}};for(const bd of["track","set","debug"])Y.zaraz[bd]=Y.zaraz._f(bd);Y.zaraz.init=()=>{var be=Z.getElementsByTagName(ba)[0],bf=Z.createElement(ba),bg=Z.getElementsByTagName("title")[0];bg&&(Y[_].t=Z.getElementsByTagName("title")[0].text);Y[_].x=Math.random();Y[_].w=Y.screen.width;Y[_].h=Y.screen.height;Y[_].j=Y.innerHeight;Y[_].e=Y.innerWidth;Y[_].l=Y.location.href;Y[_].r=Z.referrer;Y[_].k=Y.screen.colorDepth;Y[_].n=Z.characterSet;Y[_].o=(new Date).getTimezoneOffset();if(Y.dataLayer)for(const bk of Object.entries(Object.entries(dataLayer).reduce(((bl,bm)=>({...bl[1],...bm[1]})))))zaraz.set(bk[0],bk[1],{scope:"page"});Y[_].q=[];for(;Y.zaraz.q.length;){const bn=Y.zaraz.q.shift();Y[_].q.push(bn)}bf.defer=!0;for(const bo of[localStorage,sessionStorage])Object.keys(bo||{}).filter((bq=>bq.startsWith("_zaraz_"))).forEach((bp=>{try{Y[_]["z_"+bp.slice(7)]=JSON.parse(bo.getItem(bp))}catch{Y[_]["z_"+bp.slice(7)]=bo.getItem(bp)}}));bf.referrerPolicy="origin";bf.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(Y[_])));be.parentNode.insertBefore(bf,be)};["complete","interactive"].includes(Z.readyState)?zaraz.init():Y.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,"zarazData","script");})(window,document);</script></head>
+<body>
+<div class="limiter">
+<div class="container-table100">
+<div class="wrap-table100">
+<div class="table100 ver1">
+<div class="table100-firstcol">
+</div>
+<div class="wrap-table100-nextcols js-pscroll ps ps--active-x">
+<div class="table100-nextcols">
+<table>
+<thead>
+<tr class="row100 head">
+<th class="cell100 column1">Symbol</th>
+<th class="cell100 column2">Order ID</th>
+<th class="cell100 column3">Client Order ID</th>
+<th class="cell100 column4">Price</th>
+<th class="cell100 column5">Quantity</th>
+<th class="cell100 column6">Executed Quantity</th>
+<th class="cell100 column7">Cummulative Quote Quantity</th>
+<th class="cell100 column8">Status</th>
+<th class="cell100 column8">Time in Force</th>
+<th class="cell100 column8">Type</th>
+</tr>
+</thead>
+<tbody>
+        {% for order in orders %}
+        <tr>
+          <td>{{ order.symbol }}</td>
+          <td>{{ order.orderId }}</td>
+          <td>{{ order.clientOrderId }}</td>
+          <td>{{ order.price }}</td>
+          <td>{{ order.origQty }}</td>
+          <td>{{ order.executedQty }}</td>
+          <td>{{ order.cummulativeQuoteQty }}</td>
+          <td>{{ order.status }}</td>
+          <td>{{ order.timeInForce }}</td>
+          <td>{{ order.type }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+</table>
+</div>
+<div class="ps__rail-x" style="width: 1166px; left: 0px; bottom: 10px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 688px;"></div></div><div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+
+<script src="./Table V05_files/jquery-3.2.1.min.js.download"></script>
+
+<script src="./Table V05_files/popper.js.download"></script>
+<script src="./Table V05_files/bootstrap.min.js.download"></script>
+
+<script src="./Table V05_files/select2.min.js.download"></script>
+
+<script src="./Table V05_files/perfect-scrollbar.min.js.download"></script>
+<script>
+		$('.js-pscroll').each(function(){
+			var ps = new PerfectScrollbar(this);
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+
+			$(this).on('ps-x-reach-start', function(){
+				$(this).parent().find('.table100-firstcol').removeClass('shadow-table100-firstcol');
+			});
+
+			$(this).on('ps-scroll-x', function(){
+				$(this).parent().find('.table100-firstcol').addClass('shadow-table100-firstcol');
+			});
+
+		});
+
+
+
+
+	</script>
+
+<script async="" src="./Table V05_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+<script src="./Table V05_files/main.js.download"></script>
+<script defer="" src="./Table V05_files/v2b4487d741ca48dcbadcaf954e159fc61680799950996" integrity="sha512-D/jdE0CypeVxFadTejKGTzmwyV10c1pxZk/AqjJuZbaJwGMyNHY3q/mTPWqMUnFACfCTunhZUVcd4cV78dK1pQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;7b9c66bc1ce63fe5&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;,&quot;version&quot;:&quot;2023.3.0&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+
+
+</body></html>
